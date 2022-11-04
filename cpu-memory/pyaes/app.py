@@ -17,13 +17,13 @@ def function_handler():
     length_of_message = request.args.get('length_of_message', 100)
     num_of_iterations = request.args.get('num_of_iterations', 10)
 
-    message = generate(length_of_message)
+    message = generate(int(length_of_message))
 
     # 128-bit key (16 bytes)
     KEY = b'\xa1\xf6%\x8c\x87}_\xcd\x89dHE8\xbf\xc9,'
 
     start = time()
-    for loops in range(num_of_iterations):
+    for loops in range(int(num_of_iterations)):
         aes = pyaes.AESModeOfOperationCTR(KEY)
         ciphertext = aes.encrypt(message)
         print(ciphertext)
