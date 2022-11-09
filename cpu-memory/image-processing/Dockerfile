@@ -9,7 +9,5 @@ RUN pip3 install -r requirements.txt
 RUN pip install pillow
 
 COPY . .
-COPY image.jpg /tmp/image.jpg
-
 
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]

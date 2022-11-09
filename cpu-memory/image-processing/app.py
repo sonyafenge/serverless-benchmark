@@ -91,7 +91,8 @@ FILE_NAME_INDEX = 2
 
 @app.route('/image-processing', methods=['GET'])
 def function_handler():
-    image_path = request.args.get('image','/tmp/image.jpg')
+    image_path = request.args.get('image','/app/images/image.jpg')
+    print(image_path)
     latency, path_list = image_processing('image.jpg', image_path) 
     dir_path = os.path.join('_output','images')
     is_exist = os.path.exists(dir_path)
