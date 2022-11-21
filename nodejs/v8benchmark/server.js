@@ -23,6 +23,9 @@ app.get('/v8', (req, res) => {
       res.send({message:'Benchmork model does not exist'});
       return;
     }
+  } else {
+    benchmarkFile = 'v8-v7/v8-v7.js';
+    execComm = 'node ' + benchmarkFile;
   }
   
   cp.exec(execComm, (err, stdout, stderr) => {
